@@ -9,6 +9,6 @@ Gem::Specification.new do |s|
   s.files       = ["lib/paperclip-compression.rb"]
   s.homepage    = "http://github.com/dakick/paperclip-compression"
   s.add_runtime_dependency "paperclip", ["~> 2.4"]
-  spec.requirements << "jpegtran for JPEG compression"
-  spec.requirements << "optipng for PNG compression"
+  s.requirements << "jpegtran for JPEG compression"
+  s.requirements << "optipng for PNG compression"
 end
