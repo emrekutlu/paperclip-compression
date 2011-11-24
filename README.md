@@ -1,10 +1,10 @@
-# Paperclip-Compression
+# paperclip-compression
 
-JPEG and PNG processor for Paperclip.
+JPEG and PNG compression processor for Paperclip.
 
 ## Requirements
 
-Paperclip-Compression requires Paperclip gem, [jpegtran](http://jpegclub.org) and [optipng](http://optipng.sourceforge.net/) libraries.
+paperclip-compression requires Paperclip gem, [jpegtran](http://jpegclub.org) and [optipng](http://optipng.sourceforge.net/) libraries.
 
 ## Installation
 
