@@ -2,11 +2,11 @@
 
 JPEG and PNG processor for Paperclip.
 
-# Requirements
+## Requirements
 
-Paperclip-Compression requires Paperclip gem, jpegtran and optipng libraries.
+Paperclip-Compression requires Paperclip gem, [jpegtran](http://jpegclub.org) and [optipng](http://optipng.sourceforge.net/) libraries.
 
-# Installation
+## Installation
 
 Add to your Gemfile
 
@@ -14,7 +14,7 @@ Add to your Gemfile
 gem "paperclip-compression", "~> 0.1.0"
 ````
 
-# Usage
+## Usage
 
 ````ruby
 class User < ActiveRecord::Base
