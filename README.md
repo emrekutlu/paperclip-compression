@@ -11,7 +11,7 @@ paperclip-compression requires Paperclip gem, [jpegtran](http://jpegclub.org) an
 Add to your Gemfile
 
 ````ruby
-gem 'paperclip-compression', '~> 0.2.1'
+gem 'paperclip-compression', '~> 0.2.3'
 ````
 
 ## Usage
