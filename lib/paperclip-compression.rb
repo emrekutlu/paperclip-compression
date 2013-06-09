@@ -64,7 +64,7 @@ module Paperclip
 
       begin
         if @jpegtran_opts
-          Paperclip.run('jpegtran', "#{@jpegtran_opts} #{src_path} > #{dst_path}")
+          Paperclip.run('jpegtran', "#{@jpegtran_opts} '#{src_path}' > '#{dst_path}'")
           dst
         else
           src
@@ -81,7 +81,7 @@ module Paperclip
       src_path = File.expand_path(src.path)
 
       begin
-        Paperclip.run('optipng', "#{@optipng_opts} #{src_path}") if @optipng_opts
+        Paperclip.run('optipng', "#{@optipng_opts} '#{src_path}'") if @optipng_opts
         src
       rescue Cocaine::ExitStatusError => e
         raise Paperclip::Error, "OPTIPNG : There was an error processing the thumbnail for #{@basename}" if @whiny
