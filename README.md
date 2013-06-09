@@ -20,8 +20,8 @@ This is the basic usage. This will compress both JPEG and PNG files with the def
 ````ruby
 class User < ActiveRecord::Base
   has_attached_file :avatar,
-                    styles: { medium: '300x300>', thumb: '100x100>' },
-                    processors: [:thumbnail, :compression]
+    styles: { medium: '300x300>', thumb: '100x100>' },
+    processors: [:thumbnail, :compression]
 end
 ````
 
@@ -30,19 +30,19 @@ Disable PNG compression and change default options for JPEG compression for <cod
 ````ruby
 class User < ActiveRecord::Base
   has_attached_file :avatar,
-                    styles: {
-                      medium: '300x300>',
-                      thumb: {
-                        geometry: '100x100>',
-                        processor_options: {
-                          compression: {
-                            png: false,
-                            jpeg: '-copy none -optimize'
-                          }
-                        }
-                      }
-                    },
-                    processors: [:thumbnail, :compression]
+    styles: {
+      medium: '300x300>',
+      thumb: {
+        geometry: '100x100>',
+        processor_options: {
+          compression: {
+            png: false,
+            jpeg: '-copy none -optimize'
+          }
+        }
+      }
+    },
+    processors: [:thumbnail, :compression]
 end
 ````
 
