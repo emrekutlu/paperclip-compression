@@ -16,7 +16,7 @@ module PaperclipCompression
       rescue Cocaine::ExitStatusError => e
         raise Paperclip::Error, "OPTIPNG : There was an error processing the thumbnail for #{@basename}" if @whiny
       rescue Cocaine::CommandNotFoundError => e
-        raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'optipng'.Please install optipng.")
+        raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'optipng'. Please install optipng.")
       end
     end
 

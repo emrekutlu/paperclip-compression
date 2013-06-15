@@ -19,7 +19,7 @@ module PaperclipCompression
     def make
       begin
         if @cli_opts
-          Paperclip.run(command_path('jpegtran'), "#{@cli_opts} :src_path > :dst_path",src_path: @src_path, dst_path: @dst_path)
+          Paperclip.run(command_path('jpegtran'), "#{@cli_opts} :src_path > :dst_path", src_path: @src_path, dst_path: @dst_path)
           @dst
         else
           @file
@@ -27,7 +27,7 @@ module PaperclipCompression
       rescue Cocaine::ExitStatusError => e
         raise Paperclip::Error, "JPEGTRAN : There was an error processing the thumbnail for #{@basename}" if @whiny
       rescue Cocaine::CommandNotFoundError => e
-        raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'jpegtran'.Please install jpegtran.")
+        raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'jpegtran'. Please install jpegtran.")
       end
     end
 
