@@ -8,14 +8,14 @@ paperclip-compression requires Paperclip gem.
 
 ## Installation
 
-Add to your Gemfile
+Add to your Gemfile.
 
 ````ruby
-gem 'paperclip-compression', '~> 0.3.0'
+gem 'paperclip-compression', '~> 0.3.1'
 ````
 
 ## Usage
-This is the basic usage. This will compress both JPEG and PNG files with the default options. Default options for jpegtran is <code>-copy none -optimize -perfect</code> and default options for optipng is <code>-o 5</code>.
+This is the basic usage. This will compress both JPEG and PNG files with the default options.
 
 ````ruby
 class User < ActiveRecord::Base
@@ -46,4 +46,27 @@ class User < ActiveRecord::Base
 end
 ````
 
-You cannot set global compression settings. You must set <code>processor_options</code> individually for every style.
+## Defaults
+Default options for jpegtran is <code>-copy none -optimize -perfect</code> and default options for optipng is <code>-o 5</code>.
+
+You can use paperclip's default options to define global defaults for all your paperclip attachments. Use <code>compression</code> key.
+
+Example for config/application.rb:
+
+````ruby
+module YourApp
+  class Application < Rails::Application
+    # Other code...
+
+    config.paperclip_defaults = { :compression => { :png => false, :jpeg => '-optimize' } }
+  end
+end
+````
+
+Example for Rails initializer:
+
+````ruby
+Paperclip::Attachment.default_options[:compression] = { :png => false, :jpeg => '-optimize' }
+````
+
+For more information about paperclip defaults: https://github.com/thoughtbot/paperclip#defaults
