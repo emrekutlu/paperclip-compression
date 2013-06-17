@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 (JUNE 18, 2013)
+
+  * take paperclip defaults into account
+
 ## 0.3.0 (June 15, 2013)
 
   * add jpegtran and optipng binaries
