@@ -2,11 +2,11 @@ module PaperclipCompression
   class Base
 
     def initialize(file, options = {})
-      @file          = file
-      @options       = options
-      @whiny         = options.has_key?(:whiny) ? options[:whiny] : true
-      current_format = File.extname(file.path)
-      @basename      = File.basename(file.path, current_format)
+      @file             = file
+      @options          = options
+      @whiny            = options.has_key?(:whiny) ? options[:whiny] : true
+      current_extension = File.extname(file.path)
+      @basename         = File.basename(file.path, current_extension)
     end
 
     def self.make(file, options = {})

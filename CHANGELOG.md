@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.3.1 (JUNE 18, 2013)
+## 0.3.2 (June 26, 2013)
+
+  * use ImageSpec to detect image types
+
+## 0.3.1 (June 18, 2013)
 
   * take paperclip defaults into account
 

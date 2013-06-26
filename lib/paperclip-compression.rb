@@ -1,5 +1,6 @@
 require 'paperclip'
 require 'os'
+require 'image_spec'
 require 'paperclip-compression/paperclip/compression'
 require 'paperclip-compression/base'
 require 'paperclip-compression/jpeg'

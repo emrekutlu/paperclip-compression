@@ -6,8 +6,7 @@ module PaperclipCompression
     def initialize(file, options = {})
       super(file, options)
 
-      format = options[:format]
-      @dst = Tempfile.new([@basename, format ? ".#{format}" : ''])
+      @dst = Tempfile.new(@basename)
       @dst.binmode
 
       @src_path = File.expand_path(@file.path)
