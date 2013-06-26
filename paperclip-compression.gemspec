@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'paperclip-compression'
-  s.version     = '0.3.2'
-  s.date        = '2013-06-26'
+  s.version     = '0.3.3'
+  s.date        = '2013-06-27'
   s.summary     = 'Image compression for Paperclip'
   s.description = 'JPEG and PNG compression for Paperclip gem'
   s.author      = 'İ. Emre Kutlu'

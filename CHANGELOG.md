@@ -1,36 +1,40 @@
 # Changelog
 
+## 0.3.3 (June 27, 2013)
+
+  * Bug Fix: detecting content type if first processor is paperclip-compression
+
 ## 0.3.2 (June 26, 2013)
 
-  * use ImageSpec to detect image types
+  * Bug Fix: use ImageSpec to detect image types
 
 ## 0.3.1 (June 18, 2013)
 
-  * take paperclip defaults into account
+  * Feature: take paperclip defaults into account
 
 ## 0.3.0 (June 15, 2013)
 
-  * add jpegtran and optipng binaries
+  * Improvement: add jpegtran and optipng binaries
 
 ## 0.2.3 (June 9, 2013)
 
-  * fix README
+  * Improvement: fix README
 
 ## 0.2.2 (June 9, 2013)
 
-  * fix filenames with spaces
+  * Bug Fix: fix filenames with spaces
 
 ## 0.2.1 (May 4, 2013)
 
-  * fix gem release date
+  * Improvement: fix gem release date
 
 ## 0.2.0 (May 4, 2013)
 
-  * compression options added
+  * Feature: compression options added
 
 ## 0.1.1 (November 24, 2011)
 
-  * gem requirements and dependencies added
+  * Bug Fix: gem requirements and dependencies added
 
 ## 0.1.0 (November 24, 2011)
 
