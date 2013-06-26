@@ -1,4 +1,5 @@
-# paperclip-compression [![Dependency Status](https://gemnasium.com/emrekutlu/paperclip-compression.png)](https://gemnasium.com/emrekutlu/paperclip-compression)
+# paperclip-compression
+[![Gem Version](https://badge.fury.io/rb/paperclip-compression.png)](http://badge.fury.io/rb/paperclip-compression) [![Dependency Status](https://gemnasium.com/emrekutlu/paperclip-compression.png)](https://gemnasium.com/emrekutlu/paperclip-compression) [![Code Climate](https://codeclimate.com/github/emrekutlu/paperclip-compression.png)](https://codeclimate.com/github/emrekutlu/paperclip-compression)
 
 JPEG and PNG compression processor for Paperclip. Under the hood, [jpegtran](http://jpegclub.org) and [optipng](http://optipng.sourceforge.net/) libraries are used.
 
