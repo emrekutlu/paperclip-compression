@@ -3,7 +3,7 @@ module Paperclip
   class Compression < Processor
 
     def make
-      case ImageSpec.new(@file).content_type
+      case content_type
       when 'image/jpeg' then make_jpeg
       when 'image/png'  then make_png
       else
@@ -19,6 +19,10 @@ module Paperclip
 
     def make_png
       PaperclipCompression::Png.make(@file, @options)
+    end
+
+    def content_type
+      @file.is_a?(Paperclip::UploadedFileAdapter) ? @file.content_type : ImageSpec.new(@file).content_type
     end
 
   end
