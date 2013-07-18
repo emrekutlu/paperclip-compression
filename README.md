@@ -67,3 +67,6 @@ Paperclip::Attachment.default_options[:compression] = { :png => false, :jpeg => 
 ````
 
 For more information about paperclip defaults: https://github.com/thoughtbot/paperclip#defaults
+
+## License
+paperclip-compression is released under the [MIT License](https://github.com/emrekutlu/paperclip-compression/blob/master/LICENSE.txt).
