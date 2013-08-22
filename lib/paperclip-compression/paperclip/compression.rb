@@ -22,7 +22,7 @@ module Paperclip
     end
 
     def content_type
-      @file.is_a?(Paperclip::UploadedFileAdapter) ? @file.content_type : ImageSpec.new(@file).content_type
+      @file.is_a?(Paperclip::AbstractAdapter) ? @file.content_type : ImageSpec.new(@file).content_type
     end
 
   end
