@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.4 (August 22, 2013)
+
+  * Bug Fix: Support for all the paperclip IO adapter's
+  * MIT license added
+
 ## 0.3.3 (June 27, 2013)
 
   * Bug Fix: detecting content type if first processor is paperclip-compression
