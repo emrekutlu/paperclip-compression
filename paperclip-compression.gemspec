@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.bindir      = 'bin'
   s.homepage    = 'http://github.com/emrekutlu/paperclip-compression'
   s.license     = 'MIT'
-  s.add_runtime_dependency 'paperclip', ['~> 3.3']
+  s.add_runtime_dependency 'paperclip', ['>= 3.3']
   s.add_runtime_dependency 'os', ['~> 0.9.6']
   s.add_runtime_dependency 'ruby-imagespec', ['~> 0.3.1']
 end
