@@ -1,4 +1,4 @@
-# coding: utf-8
+# encoding: utf-8
 Gem::Specification.new do |s|
   s.name        = 'paperclip-compression'
   s.version     = '0.3.5'
