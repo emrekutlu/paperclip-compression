@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.3.5 (February 14, 2014)
+
+  * Improvement: change dependencies to allow paperclip 4 ([Jarosław Rzeszótko](https://github.com/jaroslawr))
+
 ## 0.3.4 (August 22, 2013)
 
-  * Bug Fix: Support for all the paperclip IO adapter's
+  * Bug Fix: Support for all the paperclip IO adapter's ([Oscar Esgalha](https://github.com/oesgalha))
   * MIT license added
 
 ## 0.3.3 (June 27, 2013)
