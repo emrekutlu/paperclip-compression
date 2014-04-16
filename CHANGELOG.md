@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.6 (April 16, 2014)
+
+  * Improvement: update jpegtran and optipng binaries
+
 ## 0.3.5 (February 14, 2014)
 
   * Improvement: change dependencies to allow paperclip 4 ([Jarosław Rzeszótko](https://github.com/jaroslawr))
