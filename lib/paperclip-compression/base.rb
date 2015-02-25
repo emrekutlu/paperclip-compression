@@ -25,7 +25,7 @@ module PaperclipCompression
     def command_path(command)
      folder = if OS.osx?
         'osx'
-      elsif OS.linux?
+      elsif OS.linux? || RUBY_PLATFORM =~ /freebsd/
         File.join('linux', OS.bits.eql?(64) ? 'x64' : 'x86')
       elsif OS.windows?
         OS.bits.eql?(64) ? 'win64' : 'win32'

@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.7 (February 12, 2015)
+  * Bug Fix: detecting freebsd
+
 ## 0.3.6 (April 16, 2014)
 
   * Improvement: update jpegtran and optipng binaries
