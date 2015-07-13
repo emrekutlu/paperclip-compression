@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.8 (July 13, 2015)
+  * Security: upgrade paperclip dependency
+
 ## 0.3.7 (February 12, 2015)
   * Bug Fix: detecting freebsd
 
