@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.3.9 (July 13, 2015)
+  * Improvement: loosen paperclip dependency
+
 ### 0.3.8 (July 13, 2015)
   * Security: upgrade paperclip dependency
 
