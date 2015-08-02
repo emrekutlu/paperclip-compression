@@ -1,12 +1,19 @@
 # Changelog
 
+### 0.3.10 (August 2, 2015)
+
+  * Bug fix: "File used by other process" error fix ([Maciek Partyka](https://github.com/Maciekp))
+
 ### 0.3.9 (July 13, 2015)
+
   * Improvement: loosen paperclip dependency
 
 ### 0.3.8 (July 13, 2015)
+
   * Security: upgrade paperclip dependency
 
 ## 0.3.7 (February 12, 2015)
+
   * Bug Fix: detecting freebsd
 
 ## 0.3.6 (April 16, 2014)
