@@ -18,7 +18,10 @@ module PaperclipCompression
     def make
       begin
         if @cli_opts
+          #  close dst file, so jpegtran can write it
+          @dst.close
           Paperclip.run(command_path('jpegtran'), "#{@cli_opts} :src_path > :dst_path", src_path: @src_path, dst_path: @dst_path)
+          @dst.open
           @dst
         else
           @file
