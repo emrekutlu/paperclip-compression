@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'paperclip', ['>= 4.2.2']
   s.add_runtime_dependency 'os', ['~> 0.9.6']
-  s.add_runtime_dependency 'ruby-imagespec', ['~> 0.3.1']
+  s.add_runtime_dependency 'ruby-imagespec', ['~> 0.4.1']
 
   s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rake', '~> 10.1'
