@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.3.11 (September 15, 2015)
+
+  * Improvement: upgrades ruby-imagespec to 0.4.1
+  * Improvement: runs optipng in quiet mode
+
 ### 0.3.10 (August 2, 2015)
 
   * Bug fix: "File used by other process" error fix ([Maciek Partyka](https://github.com/Maciekp))
