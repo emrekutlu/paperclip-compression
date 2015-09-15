@@ -44,7 +44,7 @@ end
 ````
 
 ## Defaults
-Default options for jpegtran is <code>-copy none -optimize -perfect</code> and default options for optipng is <code>-o 5</code>.
+Default options for jpegtran is <code>-copy none -optimize -perfect</code> and default options for optipng is <code>-o 5 -quiet</code>.
 
 You can use paperclip's default options to define global defaults for all your paperclip attachments. Use <code>compression</code> key.
 

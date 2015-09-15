@@ -1,7 +1,7 @@
 module PaperclipCompression
   class Png < Base
 
-    OPTIPNG_DEFAULT_OPTS  = '-o 5'
+    OPTIPNG_DEFAULT_OPTS  = '-o 5 -quiet'
 
     def initialize(file, options = {})
       super(file, options)
