@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'paperclip-compression'
-  s.version     = '0.3.11'
+  s.version     = '0.3.12'
   s.summary     = 'Image compression for Paperclip'
   s.description = 'JPEG and PNG compression for Paperclip gem'
   s.author      = 'İ. Emre Kutlu'
@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ['lib']
 
-  s.add_runtime_dependency 'paperclip', ['>= 4.2.2']
+  s.add_runtime_dependency 'paperclip', ['>= 4.3.0']
   s.add_runtime_dependency 'os', ['~> 0.9.6']
 
   s.add_development_dependency 'bundler', '~> 1.3'

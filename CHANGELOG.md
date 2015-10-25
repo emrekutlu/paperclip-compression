@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.3.12 (October 25, 2015)
+  * Improvement: removes ruby-imagespec dependency ([Uilton Dutra](https://github.com/uiltondutra))
+  * Improvement: upgrades paperclip dependency to >= 4.3.0
+
 ### 0.3.11 (September 15, 2015)
 
   * Improvement: upgrades ruby-imagespec to 0.4.1
