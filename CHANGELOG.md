@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.13 (October 31, 2015)
+  * Bug Fix: returns tempfile when processor is disabled
+
 ## 0.3.12 (October 25, 2015)
   * Improvement: removes ruby-imagespec dependency ([Uilton Dutra](https://github.com/uiltondutra))
   * Improvement: upgrades paperclip dependency to >= 4.3.0
