@@ -3,18 +3,16 @@ module PaperclipCompression
 
     OPTIPNG_DEFAULT_OPTS  = '-o 5 -quiet'
 
-    def initialize(file, options = {})
-      super(file, options)
-      @src_path = File.expand_path(@file.path)
+    def initialize(file, first_processor, options = {})
+      super(file, first_processor, options)
       @cli_opts = init_cli_opts(:png, default_opts)
     end
 
     def make
       begin
-        Paperclip.run(command_path('optipng'), "#{@cli_opts} :src_path", src_path: @src_path) if @cli_opts
-        @file
+        process_file? ? process_file : unprocessed_tempfile
       rescue Cocaine::ExitStatusError => e
-        raise Paperclip::Error, "OPTIPNG : There was an error processing the thumbnail for #{@basename}" if @whiny
+        raise Paperclip::Error, "OPTIPNG : There was an error processing #{@basename}" if @whiny
       rescue Cocaine::CommandNotFoundError => e
         raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'optipng'. Please install optipng.")
       end
@@ -24,6 +22,11 @@ module PaperclipCompression
 
     def default_opts
       OPTIPNG_DEFAULT_OPTS
+    end
+
+    def process_file
+      Paperclip.run(command_path('optipng'), "#{@cli_opts} -clobber :src_path -out :dst_path", src_path: @src_path, dst_path: @dst_path)
+      @dst
     end
 
   end
