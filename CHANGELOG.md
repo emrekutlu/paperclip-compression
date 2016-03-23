@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.14 (March 23, 2016)
+  * Security: upgrade paperclip dependency
+
 ## 0.3.13 (October 31, 2015)
   * Bug Fix: returns tempfile when processor is disabled
 
