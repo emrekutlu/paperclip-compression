@@ -24,12 +24,10 @@ module PaperclipCompression
       JPEGTRAN_DEFAULT_OPTS
     end
 
-    def process_file
-      # close dst file, so jpegtran can write it
-      @dst.close
-      Paperclip.run(command_path('jpegtran'), "#{@cli_opts} :src_path > :dst_path", src_path: @src_path, dst_path: @dst_path)
-      @dst.open
-      @dst
+    def compress
+      Paperclip.run(command_path('jpegtran'),
+                    "#{@cli_opts} :src_path > :dst_path",
+                    src_path: @src_path, dst_path: @dst_path)
     end
   end
 end

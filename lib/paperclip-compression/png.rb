@@ -24,10 +24,10 @@ module PaperclipCompression
       OPTIPNG_DEFAULT_OPTS
     end
 
-    def process_file
-      Paperclip.run(command_path('optipng'), "#{@cli_opts} -clobber :src_path -out :dst_path", src_path: @src_path, dst_path: @dst_path)
-      @dst
+    def compress
+      Paperclip.run(command_path('optipng'),
+                    "#{@cli_opts} -clobber :src_path -out :dst_path",
+                    src_path: @src_path, dst_path: @dst_path)
     end
-
   end
 end
