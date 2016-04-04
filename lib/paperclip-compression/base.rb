@@ -17,6 +17,28 @@ module PaperclipCompression
       new(file, first_processor, options).make
     end
 
+    def process_file
+      # Close output file so compressors which require exclusive file rights
+      # work.
+      @dst.close
+
+      # Execute the child-compressor classes implementation of how to compress
+      # the output
+      compress
+
+      # Re-open the output file so downstream paperclip-middleware may
+      # read/write/etc. without having to re-open the file.
+      @dst.open
+
+      # Return the destination file for downstream paperclip processors.
+      @dst
+    end
+
+    private def compress
+      fail MustImplementInSubClassesException,
+           'compress is overridden on a per compressor basis.'
+    end
+
     protected
 
     def process_file?
@@ -73,4 +95,7 @@ module PaperclipCompression
       FileUtils.cp(@src_path, @dst_path)
     end
   end
+
+  # Informs developers when a method is intended to be defined in # sub-classes.
+  class MustImplementInSubClassesException < Exception; end
 end
