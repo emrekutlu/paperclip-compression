@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.15 (April 4, 2016)
+  * Bug Fix: For accurate file info, re-open output file after compressing ([Zee](https://github.com/zspencer))
+
 ## 0.3.14 (March 23, 2016)
   * Security: upgrade paperclip dependency
 
@@ -17,7 +20,7 @@
 
 ## 0.3.10 (August 2, 2015)
 
-  * Bug fix: "File used by other process" error fix ([Maciek Partyka](https://github.com/Maciekp))
+  * Bug fix: "File used by other process" error fix (Maciek Partyka)
 
 ## 0.3.9 (July 13, 2015)
 
