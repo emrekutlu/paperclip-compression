@@ -34,11 +34,6 @@ module PaperclipCompression
       @dst
     end
 
-    private def compress
-      fail MustImplementInSubClassesException,
-           'compress is overridden on a per compressor basis.'
-    end
-
     protected
 
     def process_file?
@@ -70,6 +65,11 @@ module PaperclipCompression
     end
 
     private
+
+    def compress
+      fail MustImplementInSubClassesException,
+           'compress is overridden on a per compressor basis.'
+    end
 
     def first_processor?
       @first_processor
