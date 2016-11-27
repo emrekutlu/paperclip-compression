@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.16 (November 27, 2016)
+  * Improvement: loosen paperclip dependency
+
 ## 0.3.15 (April 4, 2016)
   * Bug Fix: For accurate file info, re-open output file after compressing ([Zee](https://github.com/zspencer))
 
