@@ -1,11 +1,12 @@
 module PaperclipCompression
   class Png < Base
 
-    OPTIPNG_DEFAULT_OPTS  = '-o 5 -quiet'
+    PNG_KEY = :png
+    OPTIPNG_DEFAULT_OPTS = '-o 5 -quiet'
 
     def initialize(file, first_processor, options = {})
       super(file, first_processor, options)
-      @cli_opts = init_cli_opts(:png, default_opts)
+      @cli_opts = init_cli_opts(PNG_KEY, default_opts)
     end
 
     def make
@@ -25,9 +26,11 @@ module PaperclipCompression
     end
 
     def compress
-      Paperclip.run(command_path('optipng'),
-                    "#{@cli_opts} -clobber :src_path -out :dst_path",
-                    src_path: @src_path, dst_path: @dst_path)
+      Paperclip.run(
+        command_path('optipng'),
+        "#{@cli_opts} -clobber :src_path -out :dst_path",
+        src_path: @src_path, dst_path: @dst_path
+      )
     end
   end
 end

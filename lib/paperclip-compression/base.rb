@@ -1,6 +1,8 @@
 module PaperclipCompression
   class Base
 
+    PROCESSOR_OPTIONS_KEY = :compression
+
     def initialize(file, first_processor, options = {})
       @file             = file
       @options          = options
@@ -76,7 +78,7 @@ module PaperclipCompression
     end
 
     def init_default_opts(opts, type, default_opts)
-      if opts && (compression_opts = opts[:compression])
+      if opts && (compression_opts = opts[PROCESSOR_OPTIONS_KEY])
         if compression_opts.has_key?(type)
           if (type_opts = compression_opts[type])
             type_opts.kind_of?(String) ? type_opts : default_opts

@@ -1,11 +1,12 @@
 module PaperclipCompression
   class Jpeg < Base
 
+    JPEG_KEY = :jpeg
     JPEGTRAN_DEFAULT_OPTS = '-copy none -optimize -perfect'
 
     def initialize(file, first_processor, options = {})
       super(file, first_processor, options)
-      @cli_opts = init_cli_opts(:jpeg, default_opts)
+      @cli_opts = init_cli_opts(JPEG_KEY, default_opts)
     end
 
     def make
@@ -25,9 +26,11 @@ module PaperclipCompression
     end
 
     def compress
-      Paperclip.run(command_path('jpegtran'),
-                    "#{@cli_opts} :src_path > :dst_path",
-                    src_path: @src_path, dst_path: @dst_path)
+      Paperclip.run(
+        command_path('jpegtran'),
+        "#{@cli_opts} :src_path > :dst_path",
+        src_path: @src_path, dst_path: @dst_path
+      )
     end
   end
 end
