@@ -43,6 +43,28 @@ class User < ActiveRecord::Base
 end
 ````
 
+paperclip-compression uses binaries which are bundled with the gem. So you don't need to install anything. But if these binaries don't work for you, you can use your own.
+
+````ruby
+class User < ActiveRecord::Base
+  has_attached_file :avatar,
+    styles: {
+      thumb: {
+        geometry: '100x100>',
+        processor_options: {
+          compression: {
+            jpeg: {
+              command: '/path/to/jpegtran',
+              options: '-copy none -optimize'
+            }
+          }
+        }
+      }
+    },
+    processors: [:thumbnail, :compression]
+end
+````
+
 ## Defaults
 Default options for jpegtran is <code>-copy none -optimize -perfect</code> and default options for optipng is <code>-o 5 -quiet</code>.
 
