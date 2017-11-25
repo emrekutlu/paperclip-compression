@@ -1,19 +1,19 @@
 module PaperclipCompression
   class Jpeg < Base
 
-    JPEG_KEY = :jpeg
+    KEY = :jpeg
     JPEGTRAN_DEFAULT_OPTS = '-copy none -optimize -perfect'
 
     def initialize(file, first_processor, options = {})
-      super(file, first_processor, options)
-      @cli_opts = init_cli_opts(JPEG_KEY, default_opts)
+      super(file, first_processor)
+      @config = PaperclipCompression::Config.create_with_fallbacks(options, KEY, gem_defaults)
     end
 
     def make
       begin
-        process_file? ? process_file : unprocessed_tempfile
+        @config.process_file? ? process_file : unprocessed_tempfile
       rescue Cocaine::ExitStatusError => e
-        raise Paperclip::Error, "JPEGTRAN : There was an error processing #{@basename}" if @whiny
+        raise Paperclip::Error, "JPEGTRAN : There was an error processing #{@basename}" if @config.whiny
       rescue Cocaine::CommandNotFoundError => e
         raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'jpegtran'. Please install jpegtran.")
       end
@@ -21,14 +21,17 @@ module PaperclipCompression
 
     private
 
-    def default_opts
-      JPEGTRAN_DEFAULT_OPTS
+    def gem_defaults
+      {
+        command: command_path('jpegtran'),
+        options: JPEGTRAN_DEFAULT_OPTS
+      }
     end
 
     def compress
       Paperclip.run(
-        command_path('jpegtran'),
-        "#{@cli_opts} :src_path > :dst_path",
+        @config.command,
+        "#{@config.options} :src_path > :dst_path",
         src_path: @src_path, dst_path: @dst_path
       )
     end

@@ -3,7 +3,7 @@ RSpec.describe PaperclipCompression::Jpeg do
   before(:each) do
     path = File.join(PaperclipCompression.root, 'spec', 'support', 'test.jpg')
     @file = File.new(path, 'rb')
-    @key = PaperclipCompression::Jpeg::JPEG_KEY
+    @key = PaperclipCompression::Jpeg::KEY
   end
 
   after(:each) do
@@ -14,133 +14,29 @@ RSpec.describe PaperclipCompression::Jpeg do
     PaperclipCompression::Jpeg.new(@file, false).make
   end
 
-  context 'when Paperclip default options are set' do
+  it 'does not process if command exists but config.process_file? is false' do
+    expect(PaperclipCompression::Config).to receive(:create_with_fallbacks).and_return(
+      instance_double(PaperclipCompression::Config, :process_file? => false, command: 'command')
+    )
 
-    context 'and style based options are set' do
-      it 'uses style based options' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).to receive(:run).with(anything, run_options('--xyz'), anything)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => '--xyz'))
-          jpeg.make
-        end
-      end
-    end
-
-    context 'and style based options are not set' do
-      it 'uses Paperclip default options' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).to receive(:run).with(anything,run_options('--abc'), anything)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false)
-          jpeg.make
-        end
-      end
-    end
-
-    context 'and style based options are true' do
-      it 'uses style Paperclip default options' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).to receive(:run).with(anything,run_options('--abc'), anything)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => true))
-          jpeg.make
-        end
-      end
-    end
-
-    context 'and style based options is false' do
-      it 'does not process the file' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).not_to receive(:run)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => false))
-          jpeg.make
-        end
-      end
-    end
-
-    context 'and style based options is nil' do
-      it 'does not process the file' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).not_to receive(:run)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => nil))
-          jpeg.make
-        end
-      end
-    end
-
-    context 'and style based options are blank string' do
-      it 'processes the file without additional options' do
-        with_paperclip_default_options(@key => '--abc') do
-          expect(Paperclip).to receive(:run).with(anything, run_options(''), anything)
-
-          jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => ''))
-          jpeg.make
-        end
-      end
-    end
+    expect(Paperclip).not_to receive(:run)
+    PaperclipCompression::Jpeg.new(@file, false).make
   end
 
-  context 'when Paperclip default options are not set' do
-    context 'and style based options are set' do
-      it 'uses style based options' do
-        expect(Paperclip).to receive(:run).with(anything, run_options('--xyz'), anything)
+  it 'uses config command and options' do
+    options = {
+      PaperclipCompression::Config::PROCESSOR_OPTIONS_KEY => {
+        PaperclipCompression::Config::KEY => {
+          PaperclipCompression::Jpeg::KEY => {
+            command: 'abc',
+            options: 'xyz'
+          }
+        }
+      }
+    }
 
-        jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => '--xyz'))
-        jpeg.make
-      end
-    end
-
-    context 'and style based options are not set' do
-      it 'uses PaperclipCompression default options' do
-        expect(Paperclip).to receive(:run).with(anything, run_options(PaperclipCompression::Jpeg::JPEGTRAN_DEFAULT_OPTS), anything)
-
-        jpeg = PaperclipCompression::Jpeg.new(@file, false)
-        jpeg.make
-      end
-    end
-
-    context 'and style based options are true' do
-      it 'uses style PaperclipCompression default options' do
-        expect(Paperclip).to receive(:run).with(anything, run_options(PaperclipCompression::Jpeg::JPEGTRAN_DEFAULT_OPTS), anything)
-
-        jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => true))
-        jpeg.make
-      end
-    end
-
-    context 'and style based options is false' do
-      it 'does not process the file' do
-        expect(Paperclip).not_to receive(:run)
-
-        jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => false))
-        jpeg.make
-      end
-    end
-
-    context 'and style based options is nil' do
-      it 'does not process the file' do
-        expect(Paperclip).not_to receive(:run)
-
-        jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => nil))
-        jpeg.make
-      end
-    end
-
-    context 'and style based options are blank string' do
-      it 'processes the file without additional options' do
-        expect(Paperclip).to receive(:run).with(anything, run_options(''), anything)
-
-        jpeg = PaperclipCompression::Jpeg.new(@file, false, style_options(@key => ''))
-        jpeg.make
-      end
-    end
-  end
-
-  def run_options(opts)
-    "#{opts} :src_path > :dst_path"
+    expect(Paperclip).to receive(:run).with('abc', 'xyz :src_path > :dst_path', anything)
+    PaperclipCompression::Jpeg.new(@file, false, options).make
   end
 
 end

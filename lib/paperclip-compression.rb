@@ -2,6 +2,7 @@ require 'paperclip'
 require 'os'
 require 'paperclip-compression/paperclip/compression'
 require 'paperclip-compression/base'
+require 'paperclip-compression/config'
 require 'paperclip-compression/jpeg'
 require 'paperclip-compression/png'
 

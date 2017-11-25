@@ -5,11 +5,9 @@ Bundler.setup
 require 'active_support/core_ext/module/delegation'
 require 'active_support/core_ext/object/try'
 require 'paperclip-compression'
-require 'paperclip_helper'
 
 RSpec.configure do |config|
   config.filter_run(focus: true)
   config.run_all_when_everything_filtered = true
   config.order = :random
-  config.include(PaperclipHelper)
 end

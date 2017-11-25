@@ -1,12 +1,8 @@
 module PaperclipCompression
   class Base
 
-    PROCESSOR_OPTIONS_KEY = :compression
-
-    def initialize(file, first_processor, options = {})
+    def initialize(file, first_processor)
       @file             = file
-      @options          = options
-      @whiny            = options.has_key?(:whiny) ? options[:whiny] : true
       current_extension = File.extname(file.path)
       @basename         = File.basename(file.path, current_extension)
       @dst              = Paperclip::TempfileFactory.new.generate("#{@basename}.png")
@@ -47,13 +43,6 @@ module PaperclipCompression
       first_processor? ? @dst : @file
     end
 
-    def init_cli_opts(type, default_opts)
-      # use default options in the papeclip config if exists, otherwise use gem defaults.
-      default_opts = init_default_opts(Paperclip::Attachment.default_options, type, default_opts)
-      # use processor_options if exists, otherwise use defaults.
-      init_default_opts(@options[:processor_options], type, default_opts)
-    end
-
     def command_path(command)
      folder = if OS.osx?
         'osx'
@@ -75,22 +64,6 @@ module PaperclipCompression
 
     def first_processor?
       @first_processor
-    end
-
-    def init_default_opts(opts, type, default_opts)
-      if opts && (compression_opts = opts[PROCESSOR_OPTIONS_KEY])
-        if compression_opts.has_key?(type)
-          if (type_opts = compression_opts[type])
-            type_opts.kind_of?(String) ? type_opts : default_opts
-          else
-            false
-          end
-        else
-          default_opts
-        end
-      else
-        default_opts
-      end
     end
 
     def copy_to_tempfile
