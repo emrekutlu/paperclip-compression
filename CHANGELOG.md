@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0 (November 28, 2017)
+  * Feature: adds `command` option
+  * Improvement: upgrades os dependency to 1.0.0
+  * No backward incompitable changes, safe to upgrade
+
 ## 0.3.16 (November 27, 2016)
   * Improvement: loosen paperclip dependency
 
