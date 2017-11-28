@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_runtime_dependency 'paperclip', '>= 4.3.6'
-  s.add_runtime_dependency 'os', ['~> 0.9.6']
+  s.add_runtime_dependency 'os', ['~> 1.0.0']
 
   s.add_development_dependency 'bundler', '~> 1.3'
   s.add_development_dependency 'rake', '~> 10.1'
