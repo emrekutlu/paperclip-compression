@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 (February 2, 2018)
+  * Bug Fix: removes wrong png extension for tmp files
+  * Security: upgrades paperclip dependency to >= 5.2.1
+
 ## 1.0.0 (November 28, 2017)
   * Feature: adds `command` option
   * Improvement: upgrades os dependency to 1.0.0
