@@ -5,7 +5,7 @@ module PaperclipCompression
       @file             = file
       current_extension = File.extname(file.path)
       @basename         = File.basename(file.path, current_extension)
-      @dst              = Paperclip::TempfileFactory.new.generate("#{@basename}.png")
+      @dst              = Paperclip::TempfileFactory.new.generate(@basename)
       @dst_path         = File.expand_path(@dst.path)
       @src_path         = File.expand_path(@file.path)
       @first_processor  = first_processor
