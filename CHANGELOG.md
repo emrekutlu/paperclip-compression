@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.0.2 (October 14, 2019)
+  * **Bug Fix:** fixes uninitialized constant Cocaine error
+
 ## 1.0.1 (February 2, 2018)
   * **Bug Fix:** removes wrong png extension for tmp files
   * **Security:** upgrades paperclip dependency to >= 5.2.1
