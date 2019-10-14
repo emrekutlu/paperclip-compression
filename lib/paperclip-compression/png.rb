@@ -12,9 +12,9 @@ module PaperclipCompression
     def make
       begin
         @config.process_file? ? process_file : unprocessed_tempfile
-      rescue Cocaine::ExitStatusError => e
+      rescue ExitStatusError
         raise Paperclip::Error, "OPTIPNG : There was an error processing #{@basename}" if @config.whiny
-      rescue Cocaine::CommandNotFoundError => e
+      rescue CommandNotFoundError
         raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'optipng'. Please install optipng.")
       end
     end

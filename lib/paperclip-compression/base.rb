@@ -1,4 +1,8 @@
 module PaperclipCompression
+
+  ExitStatusError = defined?(Cocaine) ? Cocaine::ExitStatusError : Terrapin::ExitStatusError
+  CommandNotFoundError = defined?(Cocaine) ? Cocaine::CommandNotFoundError : Terrapin::CommandNotFoundError
+
   class Base
 
     def initialize(file, first_processor)
