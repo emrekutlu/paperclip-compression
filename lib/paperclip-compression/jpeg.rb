@@ -12,9 +12,9 @@ module PaperclipCompression
     def make
       begin
         @config.process_file? ? process_file : unprocessed_tempfile
-      rescue Cocaine::ExitStatusError => e
+      rescue Terrapin::ExitStatusError => e
         raise Paperclip::Error, "JPEGTRAN : There was an error processing #{@basename}" if @config.whiny
-      rescue Cocaine::CommandNotFoundError => e
+      rescue Terrapin::CommandNotFoundError => e
         raise Paperclip::Errors::CommandNotFoundError.new("Could not run 'jpegtran'. Please install jpegtran.")
       end
     end
