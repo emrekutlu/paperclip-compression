@@ -11,7 +11,7 @@ RSpec.describe PaperclipCompression::Png do
   end
 
   it 'processes the file via embedded binary' do
-    PaperclipCompression::Png.new(@file, false).make
+    PaperclipCompression::Png.new(@file, false, whiny: true).make
   end
 
   it 'does not process if command exists but config.process_file? is false' do
