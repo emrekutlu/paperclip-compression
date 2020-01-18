@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.0 (January 18, 2020)
+  * **Feature:** adds Catalina support
+
 ## 1.0.2 (October 14, 2019)
   * **Bug Fix:** fixes uninitialized constant Cocaine error
 
