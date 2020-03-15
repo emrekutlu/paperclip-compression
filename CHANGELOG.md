@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.1 (March 15, 2020)
+  * **Security:** upgrades rake dependency to ~> 12.3.3
+
 ## 1.1.0 (January 18, 2020)
   * **Feature:** adds Catalina support
 
