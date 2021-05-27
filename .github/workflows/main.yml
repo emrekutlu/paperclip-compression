@@ -21,11 +21,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler: 1.17.3
       - name: Install dependencies
-        run: bundle _1.17.3_ install
+        run: bundle install
       - name: Run tests
-        run: bundle _1.17.3_ exec rspec
+        run: bundle exec rspec
 
   test-macos:
     strategy:
@@ -44,8 +43,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler: 1.17.3
       - name: Install dependencies
-        run: bundle _1.17.3_ install
+        run: bundle install
       - name: Run tests
-        run: bundle _1.17.3_ exec rspec
+        run: bundle exec rspec
