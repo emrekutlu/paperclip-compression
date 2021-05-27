@@ -1,5 +1,4 @@
 # paperclip-compression
-[![Gem Version](https://emrekutlu-test-1.appspot.com/gems/paperclip-compression/version.png)](https://rubygems.org/gems/paperclip-compression) [![Code Climate](https://codeclimate.com/github/emrekutlu/paperclip-compression.png)](https://codeclimate.com/github/emrekutlu/paperclip-compression)
 
 JPEG and PNG compression processor for Paperclip. Under the hood, [jpegtran](http://jpegclub.org) and [optipng](http://optipng.sourceforge.net/) libraries are used.
 
