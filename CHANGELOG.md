@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0 (May 28, 2021)
+  * **Security:** upgrades bundler dependency to >= 2.2.10
+  * **Feature:** adds Ruby 2.6 & 2.7 support ([Soren Hedegaard](https://github.com/sorenwiz))
+  * **Change:** drops Ruby 2.1 & 2.2 support
+
 ## 1.1.1 (March 15, 2020)
   * **Security:** upgrades rake dependency to ~> 12.3.3
 
@@ -39,7 +44,7 @@
   * **Improvement:** runs optipng in quiet mode
 
 ## 0.3.10 (August 2, 2015)
-  * **Bug fix:** "File used by other process" error fix (Maciek Partyka)
+  * **Bug Fix:** "File used by other process" error fix (Maciek Partyka)
 
 ## 0.3.9 (July 13, 2015)
   * **Improvement:** loosen paperclip dependency
